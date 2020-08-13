@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array-Objetos</title>
+</head>
+<body>
+
+    <script>
+
+        /* Variables */
+
+        let numero = -5.4;
+        console.log(numero, typeof numero, Array.isArray(numero));
+
+        let booleana = true;
+        console.log(booleana, typeof booleana, Array.isArray(booleana));
+
+        let mensaje = 'Hola!';
+        console.log(mensaje, typeof mensaje, Array.isArray(mensaje));
+
+        /* Arrow Function */
+
+        var dobleDeV1 = function(a) {
+            return 2 * a;
+        }
+
+        var dobleDeV2 = a => 2 * a;
+
+        /* Array */
+
+        let arrayNumeros = [10,11,12,13,14];
+        console.log(arrayNumeros, typeof arrayNumeros);
+
+        console.log(Array.isArray(arrayNumeros) ? 'Es un array' : 'No es array');
+
+        arrayNumeros[arrayNumeros.length] = 50;
+
+        arrayNumeros[20] = 99;
+
+        for (var i = 0; i < arrayNumeros.length ; i++ ){
+            console.log(arrayNumeros[i]);
+        }
+
+        arrayNumeros.push(5);
+
+        var arrayPersona = ['Matias', 'Romera', 24];
+        console.log(arrayPersona)
+
+
+        /* Objetos */
+
+        /* JSON */
+        var objPersona = {
+            apellido: 'Romera',
+            nombre: 'Matias',
+            edad: 24
+        }
+
+        console.log(objPersona);
+
+        /* Notacion corchetes */
+        console.log('La persona se llama ' + objPersona['nombre'] + ' ' + objPersona['apellido'] + ' y tiene ' + 
+        objPersona['edad'] + ' anios');
+
+        /* Notacion puntos */ 
+        console.log('La persona se llama ' + objPersona.nombre + ' ' + objPersona.apellido + ' y tiene ' + 
+        objPersona.edad + ' anios');
+
+        objPersona.celular = '11367785850';
+
+        console.log(objPersona);
+
+        let clientes = [ 
+            { apellido: 'Perez', nombre: 'Juan', edad: 20 },
+            { apellido: 'Rodriguez', nombre: 'Pedro', edad: 27 }
+        ]
+
+        console.log(clientes);  
+
+    </script>
+
+</body>
+</html>
