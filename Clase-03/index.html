@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array de Objetos, Objetos de Objetos</title>
+</head>
+
+<body>
+    
+    <script>
+
+        /*------------------*/
+        /* Array de Objetos */
+        /*------------------*/
+
+        let clientes = [
+            { apellido: 'Perez', nombre: 'Juan', edad: 20 },
+            { apellido: 'Rodriguez', nombre: 'Pedro', edad: 27 }
+        ]
+
+        console.log(clientes);
+
+        /* Ciclo For*/
+        for(let i = 0; i < clientes.length; i++){
+            console.log(clientes[i]);
+
+            let alias = 'nombre'; /* WTF?? */
+
+            console.log("El cliente se llama " + clientes[i].nombre + " " + clientes[i].apellido
+            + " y tiene " + clientes[i].edad);
+
+              console.log("El cliente se llama " + clientes[i][alias] + " " + clientes[i]['apellido']
+            + " y tiene " + clientes[i]['edad']);
+        }
+
+        /* Ciclo Foreach*/
+        clientes.forEach(function(c){
+            console.log("El cliente se llama " + c.nombre + " " + c.apellido
+            + " y tiene " + c.edad);
+        })
+
+        /* Ciclo For of*/
+        for(let c of clientes){
+            console.log("El cliente se llama " + c.nombre + " " + c.apellido
+            + " y tiene " + c.edad);
+        }
+
+        /*------------------*/
+        /* Objeto de Objetos*/
+        /*------------------*/
+
+        let customers = {
+           c1: { apellido: 'Perez', nombre: 'Juan', edad: 20 },
+           'c2': { apellido: 'Rodriguez', nombre: 'Pedro', edad: 27 }
+        }
+
+        console.log(customers);
+
+        /* Ciclo For in*/
+        for(let c in customers){
+            console.log(c, customers[c]);
+
+            console.log("El cliente se llama " + customers[c].nombre + " " + customers[c].apellido
+            + " y tiene " + customers[c].edad);
+        }
+
+    </script>
+
+</body>
+
+</html>
