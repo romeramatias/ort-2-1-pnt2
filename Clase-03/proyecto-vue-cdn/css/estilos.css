@@ -1,15 +1,15 @@
 h1{
-    color: teal;
+    color: dimgray  ;
 }
 
 hr{
-    background-color: tomato;
+    background-color: dimgray;
 }
 
 h4{
-    color: cadetblue;
+    color: dimgray;
 }
 
 .jumbotron {
-    background: thistle;
+    background: darkgrey;
 }
