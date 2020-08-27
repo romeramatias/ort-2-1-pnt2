@@ -1,15 +1,20 @@
-h1{
-    color: dimgray  ;
+h1 {
+  color: dimgray;
 }
 
-hr{
-    background-color: dimgray;
+hr {
+  background-color: dimgray;
 }
 
-h4{
-    color: dimgray;
+h4 {
+  color: dimgray;
 }
 
 .jumbotron {
-    background: darkgrey;
+  background: darkgrey;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
 }

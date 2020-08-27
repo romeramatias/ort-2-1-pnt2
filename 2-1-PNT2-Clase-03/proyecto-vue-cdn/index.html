@@ -92,6 +92,36 @@
             <ul>
                 <li v-for="(p,i) in personas">{{i+1}} {{p}}</li>
             </ul>
+
+            <!-- Clase 04 | V-For en una tabla, alumnos-->
+
+            <ul>
+                <li v-for="(al,ind) in alumnos">{{ind+1}} {{al.nombre}} {{al.apellido}}<li>
+            </ul>
+
+            <table class="table">
+                <tr class="bg-success text-white">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Curso</th>
+                    <th>Foto</th>
+                </tr>
+                <tr class="bg-info text-white" v-for="(al, ind) in alumnos">
+                    <td>{{al.nombre}}</td>
+                    <td>{{al.apellido}}</td>
+                    <td>{{al.edad}}</td>
+                    <td>{{al.curso ? 'Si' : 'No'}}</td>
+                    <td><img :src="al.foto" width="50px" alt="Foto Alumno"></td>
+                </tr>
+            </table>
+
+            <br>
+
+            
+
+
+
         </div>
     </div>
 
