@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Proyecto Vue CDN</title>
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+         crossorigin="anonymous"
+      />
+      <!--Al estar abajo los estilos puede sobreescribir una clase de bootstrap-->
+      <link rel="stylesheet" href="css/estilos.css" />
+   </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Vue CDN</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!--Al estar abajo los estilos puede sobreescribir una clase de bootstrap-->
-    <link rel="stylesheet" href="css/estilos.css">
-
-</head>
-
-<body>
-
-    <div id="app" class="container-fluid mt-3">
-        <div class="jumbotron">
+   <body>
+      <div id="app" class="container-fluid mt-3">
+         <div class="jumbotron">
             <h1>Bienvenidos a Vue JS CDN</h1>
-            <hr>
+            <hr />
 
             <h4><u>Interpolacion</u></h4>
-            <hr>
+            <hr />
 
             <!-- Directivas Data Bindings -->
 
@@ -29,107 +30,145 @@
             <div>{{mensaje}}</div>
             <div v-text="mensaje">Mensaje</div>
             <div v-html="mensaje">Mensaje</div>
-            <hr>
+            <hr />
 
             <!-- Porque daba italica en uno si???-->
             <div>{{mensajeHTML}}</div>
             <div v-text="mensajeHTML">MensajeHTML</div>
             <div v-html="mensajeHTML">MensajeHTML</div>
-            <hr>
+            <hr />
 
             <h4><u>Property Bind / v-bind</u></h4>
-            <input type="text" value="123"><br>
-            <input type="text" value="valor"><br>
-            <input type="text" v-bind:value="valor">{{valor}}<br>
-            <input type="text" :value="valor">{{valor}}<br>
+            <input type="text" value="123" /><br />
+            <input type="text" value="valor" /><br />
+            <input type="text" v-bind:value="valor" />{{valor}}<br />
+            <input type="text" :value="valor" />{{valor}}<br />
 
-            <hr>
+            <hr />
 
             <h4><u>Event Bind / v-on</u></h4>
-            <div class="btn btn-warning my-3" v-on:click="contador++">Contar {{contador}}</div>
-            <div class="btn btn-danger my-3" @click="contador2++">Contar {{contador2}}</div>
-            <div class="btn btn-success my-3" @click="incrementar()">Contar {{getContador3()}}</div>
-            <hr>
+            <div class="btn btn-warning my-3" v-on:click="contador++">
+               Contar {{contador}}
+            </div>
+            <div class="btn btn-danger my-3" @click="contador2++">
+               Contar {{contador2}}
+            </div>
+            <div class="btn btn-success my-3" @click="incrementar()">
+               Contar {{getContador3()}}
+            </div>
+            <hr />
 
             <h4><u>Doble Data Binding / v-model</u></h4>
             <h5>Manual</h5>
-            <input type="text" :value="valor2" @input="actualizar($event)"> {{valor2}} <br>
+            <input type="text" :value="valor2" @input="actualizar($event)" />
+            {{valor2}} <br />
             <h5>Automatico</h5>
-            <input type="text" v-model="valor3"> {{valor3}} <br>
-            <hr>
+            <input type="text" v-model="valor3" /> {{valor3}} <br />
+            <hr />
 
             <!-- Directivas Estructurales -->
             <h4><u>v-if</u></h4>
 
-            <button class="btn btn-warning my-3"
-                @click="mostrar=!mostrar">{{ mostrar ? 'Ocultar' : 'Mostrar' }}</button>
-            <p v-if="mostrar" class="alert alert-warning">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Sequi
-                atque tenetur doloribus, soluta
-                voluptatum ex, corrupti culpa perspiciatis at neque minus nisi recusandae hic voluptatibus dolor fuga,
-                est nobis vitae.</p>
+            <button class="btn btn-warning my-3" @click="mostrar=!mostrar">
+               {{ mostrar ? 'Ocultar' : 'Mostrar' }}
+            </button>
+            <p v-if="mostrar" class="alert alert-warning">
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
+               atque tenetur doloribus, soluta voluptatum ex, corrupti culpa
+               perspiciatis at neque minus nisi recusandae hic voluptatibus
+               dolor fuga, est nobis vitae.
+            </p>
             <p v-else class="alert alert-danger">Elemento removido</p>
-            <hr>
+            <hr />
 
             <h4><u>v-show</u></h4>
-            <button class="btn btn-info my-3"
-                @click="mostrar2=!mostrar2">{{ mostrar2 ? 'Ocultar' : 'Mostrar' }}</button>
-            <p v-show="mostrar2" class="alert alert-info">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Sequi
-                atque tenetur doloribus, soluta
-                voluptatum ex, corrupti culpa perspiciatis at neque minus nisi recusandae hic voluptatibus dolor fuga,
-                est nobis vitae.</p>
-            <hr>
+            <button class="btn btn-info my-3" @click="mostrar2=!mostrar2">
+               {{ mostrar2 ? 'Ocultar' : 'Mostrar' }}
+            </button>
+            <p v-show="mostrar2" class="alert alert-info">
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
+               atque tenetur doloribus, soluta voluptatum ex, corrupti culpa
+               perspiciatis at neque minus nisi recusandae hic voluptatibus
+               dolor fuga, est nobis vitae.
+            </p>
+            <hr />
 
             <h4><u>v-for</u></h4>
-            <br>
+            <br />
 
             <ul>
-                <li v-for="p in personas">{{p}}</li>
+               <li v-for="p in personas">{{p}}</li>
             </ul>
-            <br>
 
             <ul>
-                <li v-for="(p,i) in personas">{{i+1}} {{p}}</li>
+               <li v-for="(p,i) in personas">{{i+1}} {{p}}</li>
             </ul>
-
+            <hr />
             <!-- Clase 04 | V-For en una tabla, alumnos-->
 
-            <ul>
-                <li v-for="(al,ind) in alumnos">{{ind+1}} {{al.nombre}} {{al.apellido}}<li>
-            </ul>
+            <p>Clase 04 | V-For en una tabla, alumnos</p>
 
-            <table class="table">
-                <tr class="bg-success text-white">
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Edad</th>
-                    <th>Curso</th>
-                    <th>Foto</th>
-                </tr>
-                <tr class="bg-info text-white" v-for="(al, ind) in alumnos">
-                    <td>{{al.nombre}}</td>
-                    <td>{{al.apellido}}</td>
-                    <td>{{al.edad}}</td>
-                    <td>{{al.curso ? 'Si' : 'No'}}</td>
-                    <td><img :src="al.foto" width="50px" alt="Foto Alumno"></td>
-                </tr>
-            </table>
+            <button class="btn btn-warning my-3" @click="agregarAlumno()">
+               Agregar alumno harcodeado
+            </button>
+            <div v-if="alumnos.length > 0">
+               <ul>
+                  <li v-for="(al,ind) in alumnos">
+                     {{ind+1}} {{al.nombre}} {{al.apellido}}
+                  </li>
+               </ul>
 
-            <br>
+               <div class="table-responsive">
+                  <table class="table">
+                     <tr class="bg-success text-white">
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Curso</th>
+                        <th>Foto</th>
+                     </tr>
+                     <tr
+                        class="bg-info text-white"
+                        v-for="(al, ind) in alumnos"
+                     >
+                        <td>{{al.nombre}}</td>
+                        <td>{{al.apellido}}</td>
+                        <td>{{al.edad}}</td>
+                        <td>{{al.curso ? 'Si' : 'No'}}</td>
+                        <td>
+                           <img :src="al.foto" width="50px" alt="Foto Alumno" />
+                        </td>
+                     </tr>
+                  </table>
 
-            
+                  <div class="alert alert-info">
+					  {{alumnosConCurso.cantidad}} de {{alumnosConCurso.total}} alumnos hicieron el curso
+				  </div>
+               </div>
 
+               <br />
 
+               <div class="media alert alert-info" v-for="(al, ind) in alumnos">
+                  <img :src="al.foto" width="150px" alt="Foto Alumno" />
+                  <div class="media-body ml-3">
+                     <h5><u> ID: {{ind+1}}</u></h5>
+                     <p>Nombre: {{al.nombre}} {{al.apellido}}</p>
+                     <p>Edad: <i>{{al.edad}}</i></p>
+                     Hizo el curso
+                     <input v-model="al.curso" type="checkbox" />
+                     <button class="btn btn-danger ml-3" @click="eliminar(ind)">
+                        Eliminar Alumno
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <p v-else class="alert alert-danger">No hay alumnos</p>
+         </div>
+      </div>
 
-        </div>
-    </div>
-
-    <!-- Vue JS CDN-->
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
+      <!-- Vue JS CDN-->
+      <!-- development version, includes helpful console warnings -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/main.js"></script>
+   </body>
 </html>
