@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Funciones JS</title>
+   </head>
+   <body>
+      <script>
+         console.log("\n--- Variables y tipos de datos ---");
+         // 2 tipos de datos:
+         // - Primitivos (number, boolean, string) => copia por valor
+         // - Objetos (Array, Object, Function) => copia por referencia
+
+         console.log("\n- Primitivo");
+
+         //---------------------------
+         console.log("\n* Number");
+         // Se copia el valor de la variable y no la referencia
+         let num1 = 10;
+         let num2 = num1;
+         num1 = 21;
+         console.log(num1, typeof num1);
+         console.log(num2, typeof num2);
+
+         //---------------------------
+         console.log("\n* Boolean");
+         // Se copia el valor de la variable y no la referencia
+         let bool1 = true;
+         let bool2 = bool1;
+         bool1 = false;
+         console.log(bool1, typeof bool1);
+         console.log(bool2, typeof bool2);
+
+         //---------------------------
+         console.log("\n* String");
+         // Se copia el valor de la variable y no la referencia
+         let str1 = "Hola";
+         let str2 = str1;
+         str1 = "Mundo";
+         console.log(str1, typeof str1);
+         console.log(str2, typeof str2);
+
+         //---------------------------
+         console.log("\n- Objetos");
+
+         //---------------------------
+         console.log("\n* Array");
+         // Se copia la referencia, si cambia en uno cambia en los dos
+         let arrNum1 = [10, 20, 30];
+         let arrNum2 = arrNum1;
+         arrNum1[0] = 99;
+         // Array tiene un metodo para asegurarse de si una variable es un array
+         console.log(arrNum1, typeof arrNum1, Array.isArray(arrNum1));
+         console.log(arrNum2, typeof arrNum2, Array.isArray(arrNum2));
+
+         //---------------------------
+         console.log("\n* Objeto");
+         // Se copia la referencia, si cambia en uno cambia en los dos
+         let obj1 = { name: "Matias" };
+         let obj2 = obj1;
+         obj1.name = "Mati";
+         console.log(obj1, typeof obj1, Array.isArray(obj1));
+         console.log(obj2, typeof obj2, Array.isArray(obj2));
+
+         //---------------------------
+         console.log("\n--- Funciones constructoras ---");
+         console.log("\n- Tipos de datos aplicados en funciones");
+         // - Primitivos (number, boolean, string) => copia por valor
+         // - Objetos (Array, Object, Function) => copia por referencia
+
+         //---------------------------
+         console.log("\n* Valor");
+         // Cambia solo en una
+         let fecha = "14/05";
+         function agregarHoraAFecha(fec) {
+            fec = fec + " 00:10";
+            return fec;
+         }
+         console.log(fecha);
+         let fechaConHora = agregarHoraAFecha(fecha);
+         console.log(fechaConHora);
+         console.log(fecha);
+
+         //---------------------------
+         console.log("\n* Referencia");
+         // Cambia solo en ambas
+         let objFecha = { fecha: "14/05" };
+         function agregarHoraAFecha2(objFec) {
+            // * Notacion punto
+            objFec.fecha = objFec.fecha + " 00:10";
+
+            // * Notacion corchete
+            // objFec['fecha'] = objFec['fecha'] + " 00:10";
+
+            // * Notacion corchete con variable
+            // let clave = 'fecha';
+            // objFec[clave] = objFec[clave] + " 00:10";
+
+            return objFec;
+         }
+         console.log(objFecha);
+         let objFechaConHora = agregarHoraAFecha2(objFecha);
+         console.log(objFechaConHora);
+         console.log(objFecha);
+
+         //---------------------------
+         console.log("\n- Funciones constructoras");
+         // Las funciones son Objetos, pueden tener atributos
+         console.log("\n* Funciones objetos");
+
+         function miFun() {
+            console.log("La funcion");
+         }
+
+         console.log(miFun);
+         console.dir(miFun);
+
+         miFun.atributo1 = 10;
+         console.log(miFun.atributo1);
+
+         //---------------------------
+         console.log("\n* Funciones variadicas");
+
+         // Las funciones son variadicas
+         // JS es una verga, si le pones un parametro de mas, no pasa nada (lo descarta)
+         // Si le pones un parametro menos, tampoco pasa nada (no resuelve)
+         sumar = (a, b) => a + b;
+         // Tambien se les puede poner valores por default a los parametros
+         sumar2 = (a = 0, b = 0) => a + b;
+
+         console.log(sumar(5, 7));
+         console.log(sumar(5, 7, 10));
+         console.log(sumar(5));
+         console.log(sumar2(5));
+
+      </script>
+   </body>
+</html>

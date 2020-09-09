@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>String y Array Methods</title>
+   </head>
+   <body>
+      <script>
+         console.log("\n--- String Methods ---");
+         //https://www.w3schools.com/js/js_string_methods.asp
+         //https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/prototype
+
+         console.log("\n* Trim");
+         let string = "  Hola   ";
+         console.log(string, string.length);
+         let stringTrim = string.trim();
+         console.log(stringTrim, stringTrim.length);
+
+         //---------------------------
+         console.log("\n* CharAt y Slice");
+         let nombre = "mAtias";
+         // CharAt extrae un caracter de un string
+         let nombreNormal = nombre.charAt(0).toUpperCase();
+         // Slice extrae desde el indice indicado para adelante
+         nombreNormal = nombreNormal + nombre.slice(1).toLowerCase();
+         console.log(nombreNormal);
+
+         //---------------------------
+         console.log("\n* Split");
+         let mensaje = "Hola mundo como va";
+         // Split crea un array desde el caracter indicado
+         // \n indica salto de linea
+         let mensaje2Array = mensaje.split(" ");
+         console.log(mensaje);
+         console.log(mensaje2Array);
+
+         //---------------------------
+         console.log("\n--- Array Methods ---");
+
+         console.log("\n* Reverse");
+         console.log(mensaje2Array);
+         // Reverse invierte todo el array
+         mensaje2Array.reverse();
+         console.log(mensaje2Array);
+
+         //---------------------------
+         console.log("\n* Push");
+         let arrayNum = [5, 9, 14, 21];
+         console.log(arrayNum);
+         // Push agrega un elemento al final
+         arrayNum.push(25);
+         console.log(arrayNum);
+
+         //---------------------------
+         console.log("\n* Unshift");
+
+         // Unshift agrega el elemento al comienzo
+         console.log(arrayNum);
+         arrayNum.unshift(7);
+         console.log(arrayNum);
+
+         //---------------------------
+         console.log("\n* Pop");
+
+         // Pop quita los elemenos desde el final
+         console.log(arrayNum);
+         arrayNum.pop();
+         console.log(arrayNum);
+
+         //---------------------------
+         console.log("\n* Shift");
+
+         // Shift quita los elemenos desde el comienzo
+         console.log(arrayNum);
+         arrayNum.shift();
+         console.log(arrayNum);
+
+         //---------------------------
+         console.log("\n* Join");
+
+         // Join junta los elementos de un array y los convierte en string
+         // en los parametros va el caracter separador
+        console.log(mensaje2Array);
+        let array2mensaje = mensaje2Array.join(" ");
+        console.log(array2mensaje);
+
+
+      </script>
+   </body>
+</html>
