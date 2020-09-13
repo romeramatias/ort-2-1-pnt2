@@ -47,15 +47,9 @@
             <hr />
 
             <h4><u>Event Bind / v-on</u></h4>
-            <div class="btn btn-warning my-3" v-on:click="contador++">
-               Contar {{contador}}
-            </div>
-            <div class="btn btn-danger my-3" @click="contador2++">
-               Contar {{contador2}}
-            </div>
-            <div class="btn btn-success my-3" @click="incrementar()">
-               Contar {{getContador3()}}
-            </div>
+            <div class="btn btn-warning my-3" v-on:click="contador++">Contar {{contador}}</div>
+            <div class="btn btn-danger my-3" @click="contador2++">Contar {{contador2}}</div>
+            <div class="btn btn-success my-3" @click="incrementar()">Contar {{getContador3()}}</div>
             <hr />
 
             <h4><u>Doble Data Binding / v-model</u></h4>
@@ -69,27 +63,19 @@
             <!-- Directivas Estructurales -->
             <h4><u>v-if</u></h4>
 
-            <button class="btn btn-warning my-3" @click="mostrar=!mostrar">
-               {{ mostrar ? 'Ocultar' : 'Mostrar' }}
-            </button>
+            <button class="btn btn-warning my-3" @click="mostrar=!mostrar">{{ mostrar ? 'Ocultar' : 'Mostrar' }}</button>
             <p v-if="mostrar" class="alert alert-warning">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
-               atque tenetur doloribus, soluta voluptatum ex, corrupti culpa
-               perspiciatis at neque minus nisi recusandae hic voluptatibus
-               dolor fuga, est nobis vitae.
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi atque tenetur doloribus, soluta voluptatum ex,
+               corrupti culpa perspiciatis at neque minus nisi recusandae hic voluptatibus dolor fuga, est nobis vitae.
             </p>
             <p v-else class="alert alert-danger">Elemento removido</p>
             <hr />
 
             <h4><u>v-show</u></h4>
-            <button class="btn btn-info my-3" @click="mostrar2=!mostrar2">
-               {{ mostrar2 ? 'Ocultar' : 'Mostrar' }}
-            </button>
+            <button class="btn btn-info my-3" @click="mostrar2=!mostrar2">{{ mostrar2 ? 'Ocultar' : 'Mostrar' }}</button>
             <p v-show="mostrar2" class="alert alert-info">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
-               atque tenetur doloribus, soluta voluptatum ex, corrupti culpa
-               perspiciatis at neque minus nisi recusandae hic voluptatibus
-               dolor fuga, est nobis vitae.
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi atque tenetur doloribus, soluta voluptatum ex,
+               corrupti culpa perspiciatis at neque minus nisi recusandae hic voluptatibus dolor fuga, est nobis vitae.
             </p>
             <hr />
 
@@ -108,14 +94,10 @@
 
             <p>Clase 04 | V-For en una tabla, alumnos</p>
 
-            <button class="btn btn-warning my-3" @click="agregarAlumno()">
-               Agregar alumno harcodeado
-            </button>
+            <button class="btn btn-warning my-3" @click="agregarAlumno()">Agregar alumno harcodeado</button>
             <div v-if="alumnos.length > 0">
                <ul>
-                  <li v-for="(al,ind) in alumnos">
-                     {{ind+1}} {{al.nombre}} {{al.apellido}}
-                  </li>
+                  <li v-for="(al,ind) in alumnos">{{ind+1}} {{al.nombre}} {{al.apellido}}</li>
                </ul>
 
                <div class="table-responsive">
@@ -127,10 +109,7 @@
                         <th>Curso</th>
                         <th>Foto</th>
                      </tr>
-                     <tr
-                        class="bg-info text-white"
-                        v-for="(al, ind) in alumnos"
-                     >
+                     <tr class="bg-info text-white" v-for="(al, ind) in alumnos">
                         <td>{{al.nombre}}</td>
                         <td>{{al.apellido}}</td>
                         <td>{{al.edad}}</td>
@@ -142,8 +121,13 @@
                   </table>
 
                   <div class="alert alert-info">
-					  {{alumnosConCurso.cantidad}} de {{alumnosConCurso.total}} alumnos hicieron el curso
-				  </div>
+                     <div v-if="alumnosConCurso.ninguno">Ningun alumno realizo el curso</div>
+                     <div v-else-if="alumnosConCurso.todos">Todos los alumnos realizaron el curso</div>
+                     <div v-else>
+                        {{alumnosConCurso.cantidad}} {{((alumnosConCurso.cantidad <= 1)?'alumno hizo':'alumnos hicieron')}} el
+                        curso, en un total de {{alumnosConCurso.total}} alumnos
+                     </div>
+                  </div>
                </div>
 
                <br />
@@ -156,13 +140,52 @@
                      <p>Edad: <i>{{al.edad}}</i></p>
                      Hizo el curso
                      <input v-model="al.curso" type="checkbox" />
-                     <button class="btn btn-danger ml-3" @click="eliminar(ind)">
-                        Eliminar Alumno
-                     </button>
+                     <button class="btn btn-danger ml-3" @click="eliminar(ind)">Eliminar Alumno</button>
                   </div>
                </div>
             </div>
             <p v-else class="alert alert-danger">No hay alumnos</p>
+
+            <hr />
+
+            <h4><u>v-if | v-else-if | v-else</u></h4>
+            <br />
+            <input type="text" v-model="nombre" /><br />
+            <div class="div btn btn-primary mt-3">
+               <div v-if="nombre.toLowerCase() == 'matias'">Bienvenido {{nombre}}</div>
+               <div v-else-if="nombre.toLowerCase() == 'pepe'">Bienvenido {{nombre}}</div>
+               <div v-else-if="nombre.toLowerCase() == 'jose'">Bienvenido {{nombre}}</div>
+               <div v-else-if="nombre.length >= 3">Hola {{nombre}}</div>
+               <div v-else>No hay ningun nombre!</div>
+            </div>
+
+            <hr />
+
+            <!-- Directivas de Atributos -->
+            <h4><u>:style</u></h4>
+            <button type="button" class="btn btn-info my-3" @click="estilo1=!estilo1">Cambiar</button>
+            <p :style="{color:'white', 'background-color':estilo1?'grey':'crimson', borderRadius:'10px', padding:'10px'}">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium quibusdam laboriosam repellendus amet
+               numquam optio cumque eos aut minus, recusandae mollitia delectus? Obcaecati explicabo voluptatibus commodi
+               recusandae quaerat cum.
+            </p>
+
+            <h4><u>:class</u></h4>
+            <button type="button" class="btn btn-info my-3" @click="estilo2=!estilo2">Cambiar</button>
+            <!--<p :class="[{'bg-success': estilo2, 'bg-warning': !estilo2},'text-white', 'p-2']">-->
+            <p :class="{'bg-success': estilo2, 'bg-warning': !estilo2,'text-white': true, 'p-2': true}">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium quibusdam laboriosam repellendus amet
+               numquam optio cumque eos aut minus, recusandae mollitia delectus? Obcaecati explicabo voluptatibus commodi
+               recusandae quaerat cum.
+            </p>
+
+            <hr />
+            <!-- Componentes -->
+            <h4><u>Vue.component</u></h4>
+            <br />
+            <contador init="21" color="danger"></contador>
+            <contador init="444" color="info"></contador>
+            <contador init="555" color="success"></contador>
          </div>
       </div>
 
