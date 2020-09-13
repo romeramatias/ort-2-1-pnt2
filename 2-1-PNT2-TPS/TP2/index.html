@@ -15,7 +15,7 @@
    </head>
 
    <div class="container-fluid mt-3" id="app">
-      <input type="text" class="form-control" v-model="criterioDeBusqueda" placeholder="Busqueda completa..." />
+      <input type="text" class="form-control" v-model="criterioDeBusqueda" placeholder="Busqueda por nombre..." />
       <input type="text" class="form-control" v-model="criterioDeBusqueda2" placeholder="Buscar por DNI..." />
 
       <br />
@@ -108,13 +108,29 @@
          ],
       },
       computed: {
-         personasFiltradas() {
-            return this.personas.filter((persona) => {
-               let registroCompleto = `${persona.nombre}${persona.apellido}${persona.dni}${persona.correo}`;
-               return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase());
-            });
-         },
-      },
+            personasFiltradas() {
+                return this.personas.filter((persona) => {
+                    let registroCompleto = `${persona.nombre}${persona.apellido}`
+
+                    if(this.criterioDeBusqueda.length>=3 && this.criterioDeBusqueda2.length>=3){
+                        registroCompleto = registroCompleto + `${persona.dni}`
+                        return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase()) && 
+                        registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase());
+                    }
+
+                    if(this.criterioDeBusqueda.length>=3){
+                        return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase())
+                    }
+                    if(this.criterioDeBusqueda2.length>=3){
+                        registroCompleto = registroCompleto + `${persona.dni}`
+                        return registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase());
+                    }
+
+
+                    return registroCompleto;
+                });
+            }
+        },
       methods: {
          getNombreCompleto(persona) {
             return `${persona.nombre} ${persona.apellido}`;
