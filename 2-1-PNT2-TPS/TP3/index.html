@@ -36,15 +36,15 @@
          </section>
          <section class="row controls" v-if="!hayUnaPartidaEnJuego">
             <div class="small-12 columns">
-               <button id="empezar-partida" @click="empezarPartida()">CURSAR PNT2</button>
+               <button id="empezar-partida" @click="empezarPartida()">Cursar PNT2</button>
             </div>
          </section>
          <section class="row controls" v-else>
             <div class="small-12 columns">
-               <button id="atacar" @click="atacar()">ESTUDIAR</button>
-               <button id="ataque-especial" @click="ataqueEspecial">HACER TPS</button>
-               <button id="curar" @click="curar()">DESCANSAR</button>
-               <button id="rendirse" @click="terminarPartida">ABANDONAR CURSADA</button>
+               <button id="atacar" @click="atacar()">Estudiar</button>
+               <button id="ataque-especial" @click="ataqueEspecial">Hacer TPS</button>
+               <button id="curar" @click="curar()">Descansar</button>
+               <button id="rendirse" @click="terminarPartida">Abandonar cursada</button>
             </div>
          </section>
          <section class="row log" v-if="turnos.length > 0">
