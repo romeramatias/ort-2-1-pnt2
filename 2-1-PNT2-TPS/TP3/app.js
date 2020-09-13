@@ -27,7 +27,7 @@ new Vue({
          this.saludMonstruo += danio;
          this.turnos.unshift({
             esJugador: true,
-            text: `Estudiaste un par de horas y aprendiste el ${danio}% mas de Vue`,
+            text: `Estudiaste un par de horas y aprendiste un ${danio}% más de Vue`,
          });
          if (this.verificarGanador()) {
             return;
@@ -40,7 +40,7 @@ new Vue({
          this.saludMonstruo += danio;
          this.turnos.unshift({
             esJugador: true,
-            text: `Hiciste el TP que mando Dani y ahora sabes ${danio}% mas de Vue`,
+            text: `Hiciste el TP que mandó Dani y ahora sabes ${danio}% más de Vue`,
          });
          if (this.verificarGanador()) {
             return;
@@ -54,7 +54,7 @@ new Vue({
             this.saludJugador += 10;
             this.turnos.unshift({
                 esJugador: true,
-                text: `Dormiste 8 horas, ahora estas mas fresco para seguir estudiando`,
+                text: `Dormiste 8 horas, ahora estas más fresco para seguir estudiando`,
              })
          } else if (this.saludJugador == 100) {
             this.turnos.unshift({
