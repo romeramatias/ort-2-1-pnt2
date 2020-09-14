@@ -25,6 +25,65 @@
 
          console.dir(resultado);
          console.log(resultado);
-</script>
+
+         //---------------------------
+         console.log("\n* Contexto de las Funciones");
+         // Es definido por el operador this. Las funciones se alojan globalmente
+         // This apunta al objeto en donde esta contenido
+
+         function funcion4() {
+            console.log(this);
+         }
+
+         funcion4();
+
+         let nombre = "Matias";
+         var nombreG = "Mati";
+         let persona = {
+            nombre: "Mato",
+            apellido: "Romera",
+            saludo: function () {
+               console.log(this);
+               console.log(this.nombre, this.apellido);
+            },
+         };
+
+         // 'saludo' ejecutado en contexto de persona
+         persona.saludo();
+
+         // 'saludo' ejecutado en contexto global 'window'
+         const saludoExt = persona.saludo;
+         saludoExt();
+
+         //---------------------------
+         console.log("\n* Formas de ejecucion de las Funciones");
+         // Envian el contexto a la funcion en el cual se va a ejecutar
+
+         function ctx(a, b) {
+            console.log(this, a, b);
+         }
+
+         // Cuatro formas de ejecucion distintas (Normal, Aplly, Call y Bind)
+         // Se envia por parametros el contexto en el cual se deberia ejecutar la funcion
+         ctx();
+         ctx.apply({ x: 1 }, [10, 11]); // Apply: Cuando lleva parametros se envia como array
+         ctx.call({ x: 2 }, 5, 6);
+         let ctxBind = ctx.bind({ x: 3 });
+         ctxBind(7, 7);
+
+         saludoExt.call(persona); // Volviendo al ejemplo anterior, envio el contexto de persona
+         saludoExt.apply(persona);
+
+         // Bind ejemplo
+         let valor = 77;
+         let modulo = {
+            valor: 88,
+            getValor: function () {
+               return this.valor;
+            },
+         };
+
+         console.log(modulo.getValor());
+      </script>
    </body>
 </html>

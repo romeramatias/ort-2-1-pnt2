@@ -27,7 +27,7 @@ new Vue({
          this.saludMonstruo += danio;
          this.turnos.unshift({
             esJugador: true,
-            text: `Estudiaste un par de horas y aprendiste un ${danio}% más de Vue`,
+            text: `Viste la clase de PNT2 y aprendiste un ${danio}% más de Vue`,
          });
          if (this.verificarGanador()) {
             return;
