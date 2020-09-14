@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         //---------------------------
+         console.log("\n* Closure de las Funciones");
+         // Closure: Espacio de almacenamiento en un funcion que se retorna desde
+         // otra, donde se guardan las variables que se extinguieron desde la otra funcion
+
+         function externa(x) {
+            return function interna(y) {
+               console.log(x + y);
+            };
+         }
+
+         // Me devolvio una funcion, resultado ahora es una funcion
+         let resultado = externa(77);
+         console.log(resultado);
+         resultado(10);
+
+         console.dir(resultado);
+         console.log(resultado);
+</script>
+   </body>
+</html>
