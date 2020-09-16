@@ -84,6 +84,78 @@
          };
 
          console.log(modulo.getValor());
+         let getV = modulo.getValor;
+         console.log(getV());
+
+         // Bindeo cambiando el contexto de ejecucion
+         let getVBind = getV.bind(modulo);
+         console.log(getVBind());
+
+         //---------------------------
+         console.log("\n* Uso de funciones para crear objetos");
+         // Formas de crear objetos:
+         console.log("-1 Objeto literal");
+
+         let persona1 = {
+            nombre: "Matias",
+            apellido: "Romera",
+            edad: 24,
+         };
+         //__proto__ es el objeto padre
+         console.log(persona1);
+
+         // Metodo que pregunta si tiene una propiedad con ese nombre
+         // Devuelve un boolean
+         console.log(persona1.hasOwnProperty("apellido"));
+         console.log(persona1.hasOwnProperty("edad"));
+         console.log(persona1.hasOwnProperty("domicilio"));
+
+         console.log("\n 2- Metodo create de object");
+
+         // Con el create las propiedades estan protegidas
+         // Primer parametro: prototipo, padre. Si pongo null no tiene el __proto__
+         // Segundo parametro: el objeto en si, las propiedades tienen que ser objetos tambien
+         let persona2 = Object.create(
+            {},
+            {
+               nombre: {
+                  value: "Jose",
+                  writable: true,
+                  configurable: true,
+                  enumerable: true,
+               },
+               edad: {
+                  value: 77,
+               },
+            }
+         );
+
+         console.log(persona2);
+         // hasOwnProperty no va a funcionar porque no tiene prototipo
+         console.log(persona2.hasOwnProperty("nombre"));
+         console.log(persona2.hasOwnProperty("edad"));
+         console.log(persona2.hasOwnProperty("domicilio"));
+
+         console.log("\n 3- Funcion constructora");
+
+         function Persona(nombre, edad) {
+            //console.log(this);
+            this.nombre = nombre;
+            this.edad = edad;
+         }
+
+         let persona3 = new Persona("Mato", 24);
+         console.log(persona3);
+         console.log(persona3.hasOwnProperty("nombre"));
+         console.log(persona3.hasOwnProperty("edad"));
+         console.log(persona3.hasOwnProperty("domicilio"));
+
+         // New
+         // 1- Crea un objeto vacio p = {}, en algun lugar lo guarda
+         // 2- Ejecuta la funcion constructora Persona() en el contexto de ese objeto
+         // Persona.call(p, nombre, edad)
+         // 3- Retorna el objeto p
+         // let persona3 = p
       </script>
    </body>
 </html>
