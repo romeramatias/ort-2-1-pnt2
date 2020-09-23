@@ -1,17 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container-fluid mt-3">
+    <div class="jumbotron">
+      <h1>Vue.js CLI</h1>
+      <img alt="Vue logo" src="./assets/logo.png" />
+      <br />
+      <Bindings />
+      <Estructura />
+      <Atributos />
+
+      <Contador init="21" color="danger" />
+      <Contador init="444" color="info" />
+      <Contador init="555" color="success" />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Bindings from "./components/Bindings.vue";
+import Contador from "./components/contador/index.vue";
+import Estructura from "./components/Estructura.vue";
+import Atributos from "./components/Atributos.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Bindings,
+    Contador,
+    Estructura,
+    Atributos,
+  },
+};
 </script>
 
 <style>
@@ -19,8 +37,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+h1 {
+  color: teal;
 }
 </style>

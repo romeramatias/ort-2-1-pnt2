@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Mas funciones</title>
+   </head>
+   <body>
+      <script>
+         // Formas de crear Objetos, por si te olvidaste
+         // 1- Forma literal
+         // 2- Metodo 'create' de Object
+         // 3- Funciones constructoras (new)
+         // 4- Fabrica de objetos
+         // 5- Constructor de clases 'class' (ES6)
+
+         //---------------------------
+         console.log("* Creacion de Objetos");
+         console.log("1- Objeto literal");
+
+         let literal = {
+            nombre: "Matias",
+            apellido: "Literal",
+         };
+
+         console.log(literal);
+         console.dir(literal);
+         console.log(literal.hasOwnProperty("nombre"));
+
+         //---------------------------
+         console.log("\n2- Create");
+
+         let prototipo = {
+            saludo: function () {
+               console.log("Hola, soy el prototipo");
+            },
+         };
+
+         let create = Object.create(prototipo);
+         console.log(create);
+         console.dir(create);
+
+         let create2 = Object.create(prototipo, {
+            nombre: {
+               value: "Create",
+            },
+         });
+
+         console.log(create2);
+
+         console.log(prototipo.isPrototypeOf(create));
+         console.log(prototipo.isPrototypeOf(literal));
+
+         // Si envio null no tendra prototipo, si envio un objeto literal tendra __proto__
+         // ya que los objetos literas heredan proto
+         let create3 = Object.create(null);
+         console.log(create3);
+
+         // En cambio
+         let prototipoSinProto = Object.create(null, {
+            trabajar: {
+               value: function () {
+                  console.log("Wip");
+               },
+            },
+         });
+
+         let create4 = Object.create(prototipoSinProto);
+         console.log(create4);
+
+         // Le paso el proto para que no quede mucha herencia
+         let create5 = Object.create(Object.__proto__.__proto__, {
+            x: {
+               value: 20,
+               writable: true,
+               configurable: false,
+               enumerable: true,
+            },
+            y: {
+               value: 30,
+               enumerable: true,
+            },
+         });
+
+         console.log(create5);
+
+         console.log(create5.x); // Lectura de una propiedad
+         create5.x = 21; // Escritura (writable)
+         delete create5.x; // Borrar
+         for (const key in create5) {
+            // Enumerar
+            console.log(key);
+         }
+
+         console.log(create5);
+
+         //---------------------------
+         console.log("\n3- Fabrica de objetos");
+         // El problema con esto, es que no crea objetos nuevos, solo los referencia
+         // si cambio propiedades en uno, se cambia en todos los que referencien
+
+         let fabrica = {
+            nombre: null,
+            anio: null,
+         };
+
+         let fab1 = fabrica;
+         let fab2 = fabrica;
+
+         console.log(fab1);
+         console.log(fab2);
+
+         // La solucion es crear una funcion que devuelva un nuevo objeto (fabrica de objeto)
+         function fabric(nombre, anio) {
+            let a = {
+               nombre: nombre,
+               anio: anio,
+            };
+            return a;
+         }
+
+         let fab3 = fabric("Fabrica 1", 2019);
+         let fab4 = fabric("Fabrica 2", 2020);
+
+         console.log(fab3);
+         console.log(fab4);
+
+         //---------------------------
+         console.log("\n4- Operador new");
+         // El new si usa el this
+
+         function Alumno(nombre, apellido) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+         }
+
+         let mati = new Alumno("Matias", "Romera");
+         console.log(mati);
+
+         console.log(Alumno);
+         console.dir(Alumno);
+
+         // Es como agregarle un metodo a la clase de Alumno
+         Alumno.prototype.caminar = function () {
+            console.log("Caminando....");
+         };
+
+         Alumno.prototype.saludar = function () {
+            console.log("Holaaa....");
+         };
+
+         mati.caminar();
+         mati.saludar();
+
+         //---------------------------
+         console.log("\n5- Constructor de clases 'class'");
+         // A partir de ECMAscript6, es como el de Java
+
+         class Empleado {
+            constructor(nombre, antiguedad) {
+               this.nombre = nombre;
+               this.apellido = antiguedad;
+            }
+
+            trabajar() {
+               console.log("Trabajando");
+            }
+         }
+
+         let trabajador = new Empleado("Pepe", 5);
+
+         console.dir(Empleado);
+
+         console.log(trabajador);
+         trabajador.trabajar();
+      </script>
+   </body>
+</html>
