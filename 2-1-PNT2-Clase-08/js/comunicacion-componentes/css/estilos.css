@@ -1,0 +1,24 @@
+h1 {
+  color: dimgray;
+}
+
+hr {
+  background-color: dimgray;
+}
+
+h4 {
+  color: dimgray;
+}
+
+h5 u{
+  color: darkblue;
+}
+
+.jumbotron {
+  background: rgb(198, 211, 219);
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}

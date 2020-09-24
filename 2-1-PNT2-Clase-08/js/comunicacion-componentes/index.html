@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Proyecto Vue CDN</title>
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+         crossorigin="anonymous"
+      />
+      <!--Al estar abajo los estilos puede sobreescribir una clase de bootstrap-->
+      <link rel="stylesheet" href="css/estilos.css" />
+   </head>
+
+   <body>
+      <div id="app" class="container-fluid mt-3">
+         <div class="jumbotron">
+            <h1>Comunicacion entre componenetes</h4>
+            <hr />
+
+            <h4>Contadores</h2>
+            <br>
+            <Contador init="333" color="danger"></Contador>  
+            <Contador init="444" color="info"></Contador>
+            <Contador init="555" color="success"></Contador>
+         </div>
+      </div>
+
+      <!-- Vue JS CDN-->
+      <!-- development version, includes helpful console warnings -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/main.js"></script>
+   </body>
+</html>
