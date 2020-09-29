@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Proyecto Vue CDN</title>
+      <title>Proyecto Vue CLI | Comunicacion entre Componenetes</title>
       <link
          rel="stylesheet"
          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -22,9 +22,16 @@
 
             <h4>Contadores</h2>
             <br>
-            <Contador init="333" color="danger"></Contador>  
-            <Contador init="444" color="info"></Contador>
-            <Contador init="555" color="success"></Contador>
+            <button class="btn btn-danger my-3" @click="contadores[0]++">Contar 0= {{contadores['0']}}</button>
+            <button class="btn btn-info my-3" @click="contadores[1]++">Contar 0= {{contadores['1']}}</button>
+            <button class="btn btn-success my-3" @click="contadores[2]++">Contar 0= {{contadores['2']}}</button>
+
+            <p>Objeto contadores: {{contadores}}</p>
+
+            <!--Contadores lo bindiamos con : para que pase como objeto?-->
+            <Contador id="0" color="danger" :contadores="contadores"></Contador>  
+            <Contador id="1" color="info" :contadores="contadores"></Contador>
+            <Contador id="2" color="success" :contadores="contadores"></Contador>
          </div>
       </div>
 

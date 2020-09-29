@@ -108,29 +108,30 @@
          ],
       },
       computed: {
-            personasFiltradas() {
-                return this.personas.filter((persona) => {
-                    let registroCompleto = `${persona.nombre}${persona.apellido}`
+         personasFiltradas() {
+            return this.personas.filter((persona) => {
+               let registroCompleto = `${persona.nombre}${persona.apellido}`;
 
-                    if(this.criterioDeBusqueda.length>=3 && this.criterioDeBusqueda2.length>=3){
-                        registroCompleto = registroCompleto + `${persona.dni}`
-                        return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase()) && 
-                        registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase());
-                    }
+               if (this.criterioDeBusqueda.length >= 3 && this.criterioDeBusqueda2.length >= 3) {
+                  registroCompleto = registroCompleto + `${persona.dni}`;
+                  return (
+                     registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase()) &&
+                     registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase())
+                  );
+               }
 
-                    if(this.criterioDeBusqueda.length>=3){
-                        return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase())
-                    }
-                    if(this.criterioDeBusqueda2.length>=3){
-                        registroCompleto = registroCompleto + `${persona.dni}`
-                        return registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase());
-                    }
+               if (this.criterioDeBusqueda.length >= 3) {
+                  return registroCompleto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase());
+               }
+               if (this.criterioDeBusqueda2.length >= 3) {
+                  registroCompleto = registroCompleto + `${persona.dni}`;
+                  return registroCompleto.toLowerCase().includes(this.criterioDeBusquedaDNI.toLowerCase());
+               }
 
-
-                    return registroCompleto;
-                });
-            }
-        },
+               return registroCompleto;
+            });
+         },
+      },
       methods: {
          getNombreCompleto(persona) {
             return `${persona.nombre} ${persona.apellido}`;
