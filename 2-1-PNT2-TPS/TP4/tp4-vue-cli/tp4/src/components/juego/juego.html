@@ -1,0 +1,26 @@
+<section class="juego">
+   <div id="header">
+      <h1>
+         PNT2 - TP4 <br />
+         <span>{{colorDisplay}}</span>
+         <br />
+         Juego Colores
+      </h1>
+   </div>
+
+   <div id="navigator">
+      <button id="reset" @click="reiniciar()">Reiniciar</button>
+      <span id="message"> </span>
+      <button @click="juegoFacil()">Facil</button>
+      <button @click="juegoDificil()">Dificil</button>
+   </div>
+
+   <div id="container">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+   </div>
+</section>

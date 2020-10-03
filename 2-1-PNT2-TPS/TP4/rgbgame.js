@@ -89,7 +89,6 @@ function createNewColors(numbers){
 
 function createRandomStringColor(){
 	var newColor = "rgb(" + randomInt() + ", " + randomInt() + ", " + randomInt() + ")" ;
-//	console.log(newColor);
 	return newColor;
 }
 function randomInt(){

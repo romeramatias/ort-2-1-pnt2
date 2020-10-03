@@ -4,6 +4,8 @@
       <h1>Vue.js CLI</h1>
       <img alt="Vue logo" src="./assets/logo.png" />
       <br />
+      <Navbar />
+
       <Bindings />
       <Estructura />
       <Atributos />
@@ -20,6 +22,8 @@ import Bindings from "./components/Bindings.vue";
 import Contador from "./components/contador/index.vue";
 import Estructura from "./components/Estructura.vue";
 import Atributos from "./components/Atributos.vue";
+import Navbar from "./components/navbar/index.vue";
+
 
 export default {
   name: "App",
@@ -28,6 +32,7 @@ export default {
     Contador,
     Estructura,
     Atributos,
+    Navbar,
   },
 };
 </script>

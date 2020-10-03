@@ -1,0 +1,6 @@
+Mostrar color actual
+tres botones (new game, facil, dificil)
+mostrar cuadrados   
+
+
+En

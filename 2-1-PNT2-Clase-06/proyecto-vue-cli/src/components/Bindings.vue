@@ -1,4 +1,4 @@
-/* Le sacamos un par de cosas que no sirven (lang, scss) */
+/* Le sacamos un par de cosas que no sirven (lang, css) */
 /* Despues habria que importar el componente a 'App.vue' */
 <template>
   <section class="src-components-bindings">
