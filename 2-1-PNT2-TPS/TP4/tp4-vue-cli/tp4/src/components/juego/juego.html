@@ -1,26 +1,21 @@
 <section class="juego">
    <div id="header">
       <h1>
-         PNT2 - TP4 <br />
-         <span>{{colorDisplay}}</span>
+         The Great <br />
+         <span v-bind:color-jugar='colorJugar' id="colorDisplay">rgb({{colorJugar.r}}, {{colorJugar.g}}, {{colorJugar.b}})</span>
          <br />
-         Juego Colores
+         Guessing Game
       </h1>
    </div>
 
-   <div id="navigator">
-      <button id="reset" @click="reiniciar()">Reiniciar</button>
-      <span id="message"> </span>
-      <button @click="juegoFacil()">Facil</button>
-      <button @click="juegoDificil()">Dificil</button>
+   <div v-bind:color-jugar='colorJugar' v-bind:colors='colors' v-bind:mensaje='mensaje' id="navigator">
+      <button id="reset" @click="restart">New colors</button>
+      <span id="message"> {{mensaje}} </span>
+      <button id="easy" v-bind:class="{ selected: !isHard }" @click="juegoFacil()">easy</button>
+      <button id="hard" v-bind:class="{ selected: isHard }" @click="juegoDificil()">hard</button>
    </div>
 
    <div id="container">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
+      <div class="square" :style="{'background-color': backgroundColor}" @click="mostrarColor"></div>
    </div>
 </section>
