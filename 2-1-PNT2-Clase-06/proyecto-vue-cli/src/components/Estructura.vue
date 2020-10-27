@@ -146,7 +146,7 @@ export default {
    name: "src-components-estructura",
    props: [],
    mounted() {
-      this.getAlumnosAxios();
+     // this.getAlumnosAxios();
    },
    data() {
       return {
@@ -154,7 +154,7 @@ export default {
          mostrar2: true,
          personas: ["Matias", "Juan", "Daniel", "Pedro"],
          alumnos: [
-            /* {
+            {
                nombre: "Matias",
                apellido: "Romera",
                edad: 24,
@@ -185,7 +185,7 @@ export default {
                curso: false,
                foto:
                   "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/3_avatar-256.png",
-            }, */
+            }, 
          ],
          nombre: "Matias",
       };
