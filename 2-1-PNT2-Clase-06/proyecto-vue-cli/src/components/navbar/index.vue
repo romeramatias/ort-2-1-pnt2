@@ -2,4 +2,4 @@
 <script src="./navbar.js"></script>
 <style src="./navbar.css" scoped lang="css"></style>
 
-/* npm i router? */
+/* npm i vue-router@next */
