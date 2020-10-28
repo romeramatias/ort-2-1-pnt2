@@ -25,6 +25,7 @@
             />
             <div class="media-body ml-3">
                <h4>Alumno {{ index + 1 }} | ID: {{ alumno.id }}</h4>
+               <h5>Creado {{ formatearFecha(alumno.createdAt) }}</h5>
                <p>
                   Nombre:
                   <b
@@ -60,8 +61,12 @@
 </template>
 
 <script>
+import filters from "../filters.js";
+
 export default {
    name: "src-components-http",
+   mixins: [filters],
+
    props: [],
 
    // HOOKS LIFECYCLE

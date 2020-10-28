@@ -21,10 +21,12 @@
                      Campo requerido
                   </div>
                   <div v-else-if="$v.formu.nombre.minLength.$invalid">
-                     El nombre debe tener al menos {{$v.formu.nombre.minLength.$params.length}} caracteres
+                     El nombre debe tener al menos
+                     {{ $v.formu.nombre.minLength.$params.length }} caracteres
                   </div>
                   <div v-else-if="$v.formu.nombre.maxLength.$invalid">
-                     El nombre debe tener como maximo {{$v.formu.nombre.maxLength.$params.max}} caracteres
+                     El nombre debe tener como maximo
+                     {{ $v.formu.nombre.maxLength.$params.max }} caracteres
                   </div>
                   <div v-else-if="$v.formu.nombre.conEspacios.$invalid">
                      No se permiten espacios en este campo
@@ -47,7 +49,8 @@
                      Campo requerido
                   </div>
                   <div v-else-if="$v.formu.edad.between.$invalid">
-                     La edad debe ser mayor a 18 y menor a 90 | {{$v.formu.edad.between.$message}}
+                     La edad debe ser mayor a 18 y menor a 90 |
+                     {{ $v.formu.edad.between.$message }}
                   </div>
                </div>
             </div>
@@ -81,8 +84,9 @@
             </div>
          </form>
 
-<!--           <pre>{{ $v }}</pre> 
- -->      </div>
+         <!--           <pre>{{ $v }}</pre> 
+ -->
+      </div>
    </section>
 </template>
 
@@ -129,9 +133,7 @@ export default {
       this.getDatosFormAxios();
    },
    methods: {
-
-      delay: ms => new Promise(res => setTimeout(res, ms)),
-
+      delay: (ms) => new Promise((res) => setTimeout(res, ms)),
 
       // ------------------------------------------------------------------------
       // Fetch con async await
