@@ -4,12 +4,7 @@
       <hr />
 
       <div class="media alert alert-dark">
-         Presupuesto:<input
-            class="ml-3"
-            type="numer"
-            :value="presupuesto"
-            @input="actualizar($event)"
-         />
+         Presupuesto:<input class="ml-3" type="numer" :value="presupuesto" @input="actualizar($event)" />
       </div>
 
       <table class="table table-dark">
@@ -35,24 +30,16 @@
                <td></td>
                <td>
                   <b>
-                     <div v-if="this.importeTotal < 1000" style="color: green">
+                     <div v-if="this.importeTotal > presupuesto" style="color: red">
                         {{ valorConSigno(importeTotal) }}
                      </div>
-                     <div
-                        v-else-if="
-                           this.importeTotal > 1000 && this.importeTotal < 5000
-                        "
-                        style="color: purple"
-                     >
+                     <div v-else-if="this.importeTotal < 1000" style="color: green">
                         {{ valorConSigno(importeTotal) }}
                      </div>
-                     <div
-                        v-else-if="this.importeTotal > presupuesto"
-                        style="color: orange"
-                     >
+                     <div v-else-if="this.importeTotal > 1000 && this.importeTotal < 5000" style="color: purple">
                         {{ valorConSigno(importeTotal) }}
                      </div>
-                     <div v-else style="color: red">
+                     <div v-else-if="this.importeTotal > 5000" style="color: orange">
                         {{ valorConSigno(importeTotal) }}
                      </div>
                   </b>
@@ -113,5 +100,4 @@ export default {
 };
 </script>
 
-<style scoped lang="css">
-</style>
+<style scoped lang="css"></style>
