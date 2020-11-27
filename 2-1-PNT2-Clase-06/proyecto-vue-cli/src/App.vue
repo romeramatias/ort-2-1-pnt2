@@ -2,16 +2,19 @@
    <div id="app" class="container-fluid mt-3">
       <div class="jumbotron mt-3">
          <br />
-         <h1>Vue Cli {{ contador }} </h1>
+         <h1>Vue Cli {{ $store.state.contador }}</h1>
 
          <!-- Recupera el contador del componente hijo -->
-         <ContadorVueX @contador="setContador($event)" />
+         <!-- <ContadorVueX @contador="setContador($event)" /> -->
 
          <!-- Se lo envio a la barra de navegacion -->
-         <Navbar :contador="getContador()" />
+         <!-- <Navbar :contador="getContador()" /> -->
+         
+         <ContadorVueX />
+         <Navbar />
          <router-view />
       </div>
-   </div> 
+   </div>
 </template>
 
 <script>
@@ -30,6 +33,7 @@ export default {
       };
    },
    methods: {
+      // Con Vuex todas estas boludeces no hacen falta
       setContador(valor) {
          console.log(valor);
          this.contador = valor;

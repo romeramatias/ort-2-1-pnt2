@@ -2,7 +2,7 @@
 export default {
   name: 'navbar',
   components: {},
-  props: ['contador'],
+  //props: ['contador'],
   data () {
     return {
 

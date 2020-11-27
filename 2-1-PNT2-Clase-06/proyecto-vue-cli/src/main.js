@@ -12,12 +12,12 @@ import "popper.js";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const app = createApp(App);
-app.use(router);
-app.use(VuelidatePlugin);
-app.use(VueAxios, axios);
-app.use(store)
-app.mount("#app");
+createApp(App)
+   .use(router)
+   .use(VuelidatePlugin)
+   .use(VueAxios, axios)
+   .use(store)
+   .mount("#app");
 
 // npm i axios
 // npm i vue-axios

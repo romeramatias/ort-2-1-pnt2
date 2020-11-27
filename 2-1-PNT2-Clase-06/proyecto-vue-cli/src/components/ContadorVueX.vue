@@ -23,14 +23,23 @@ export default {
    },
    methods: {
       decrementar() {
-         this.contador--;
+         this.$store.dispatch('contarDown', 1);
       },
       incrementar() {
+         this.$store.dispatch('contarUp', 1);
+      },
+      decrementar2() {
+         this.contador--;
+      },
+      incrementar2() {
          this.contador++;
       },
    },
    computed: {
-      mostrarContador() {
+      mostrarContador(){
+         return this.$store.state.contador;
+      },
+      mostrarContador2() {
          // Creacion del evento
          this.$emit("contador", this.contador);
          return this.contador;
